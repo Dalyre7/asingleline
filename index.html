@@ -19,7 +19,7 @@
             background: green;
             border: none;
             border-radius: 8px;
-            color: white;
+            color: green;
             cursor: pointer;
         }
 
@@ -34,12 +34,12 @@
 
 
     <script>
-        function startPrank() {
-            document.body.innerHTML = '<h1> OKAY THEN </h1><p>Try closing the tab</p>';
+        function startHit() {
+            document.body.innerHTML = '<h1> no </h1><p> naurh </p>';
 
             for (let i = 0; i < 50; i++) {
                 setTimeout(() => {
-                    window.open("https://example.com", "_blank", "width=300, height=200");
+                    window.open("https://wikipedia.com", "_blank", "width=300, height=200");
 
                 }, i * 100);
             }
@@ -59,8 +59,8 @@
 
          setInterval(() => {
             const spam = document.createElement("div");
-            spam.textContent = "DING DONG";
-            spam.style.fontSize = "28px";
+            spam.textContent = "IDIOT";
+            spam.style.fontSize = "50px";
             spam.style.color = "white";
             spam.style.fontWeight = "bold";
             document.body.appendChild(spam);
