@@ -3,12 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Real Popup Spam</title>
+  <title>Popup + Spam</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       background: black;
+      overflow: hidden;
+      position: relative;
+      font-family: Arial, sans-serif;
+    }
+    .spam-text {
+      position: absolute;
+      font-size: 30px;
+      font-weight: bold;
+      color: white;
+      user-select: none;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -30,19 +41,23 @@
 
   let msgIndex = 0;
 
-  function openPopup() {
-    const message = messages[msgIndex];
-    const newWindow = window.open("", "", "width=300,height=200,top=" + Math.random() * screen.height + ",left=" + Math.random() * screen.width);
-    if (newWindow) {
-      newWindow.document.write(`<body style="background:black;color:white;display:flex;align-items:center;justify-content:center;font-size:20px;">${message}</body>`);
-    }
+  function spamPopups() {
+    alert(messages[msgIndex]);
+    spawnSpam(messages[msgIndex]);
     msgIndex = (msgIndex + 1) % messages.length;
+    setTimeout(spamPopups, 100); // keep it going after each alert
   }
 
-  // Start spamming immediately on load
-  window.onload = function() {
-    setInterval(openPopup, 500); // open a popup every 500ms
-  };
+  function spawnSpam(text) {
+    const spam = document.createElement('div');
+    spam.textContent = text;
+    spam.className = 'spam-text';
+    spam.style.left = Math.random() * (window.innerWidth - 200) + 'px';
+    spam.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+    document.body.appendChild(spam);
+  }
+
+  window.onload = spamPopups;
 </script>
 
 </body>
