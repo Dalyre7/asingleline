@@ -31,15 +31,10 @@
         const alertSpam = setInterval(() => {
             alert("You're an idiot.");
             alertCount++;
-            if (alertCount >= 50) clearInterval(alertSpam);
-         }, 1);
+            if (alertCount >= 150) clearInterval(alertSpam);
+         }, 500);
 
-           let alertCount = 0;
-        const alertSpam = setInterval(() => {
-            alert("Fuck");
-            alertCount++;
-            if (alertCount >= 50) clearInterval(alertSpam);
-         }, 1);
+
 
          if (navigator.vibrate) {
              const startLink = document.getElementById('startSpam');
