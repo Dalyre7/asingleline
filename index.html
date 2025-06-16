@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stupid little thing</title>
+    <title>Small thing</title>
 
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 2em;
-            background: white;
+            background: black;
         }
         button {
             font-size: 1.5em;
             padding: 1em 2em;
-            background: #f4f4f4;
+            background: green;
             border: none;
             border-radius: 8px;
             color: white;
@@ -31,9 +31,7 @@
 
 
 <body>
-    <h1> You're an idiot</h1>
-    <p>Yesss, you are.</p>
-    <button onclick="startPrank()">Click here</button>
+
 
     <script>
         function startPrank() {
@@ -63,7 +61,7 @@
             const spam = document.createElement("div");
             spam.textContent = "DING DONG";
             spam.style.fontSize = "28px";
-            spam.style.color = "black";
+            spam.style.color = "white";
             spam.style.fontWeight = "bold";
             document.body.appendChild(spam);
             window.scrollTo(0, document.body.scrollHeight);
