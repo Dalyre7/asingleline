@@ -1,59 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Small thing</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 2em;
-            background: black;
-        }
-    
-
-
-
-    </style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Popup Spam</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: black;
+      color: white;
+      padding: 50px;
+    }
+    a#startPopups {
+      color: #e74c3c;
+      text-decoration: none;
+      font-size: 1.5em;
+      border: 2px solid #e74c3c;
+      padding: 15px 30px;
+      border-radius: 8px;
+      display: inline-block;
+      cursor: pointer;
+    }
+  </style>
 </head>
-
-
 <body>
 
+  <h1>Popup Spam Demo</h1>
+  <a href="#" id="startPopups">Start Popup Spam</a>
 
-    <script>
-    
-        let alertCount = 0;
-        const alertSpam = setInterval(() => {
-            alert("You're an idiot.");
-            alertCount++;
-            if (alertCount >= 150) clearInterval(alertSpam);
-         }, 500);
+  <script>
+    const messages = [
+      "You're an idiot.",
+      "Still here?",
+      "You can't escape.",
+      "Seriously, stop.",
+      "Why are you clicking?",
+      "Ok fine, I'll stop...",
+      "Just kidding.",
+      "Keep clicking...",
+      "You're persistent.",
+      "I'm running out of things to say."
+    ];
 
+    let msgIndex = 0;
 
+    document.getElementById('startPopups').addEventListener('click', function(e) {
+      e.preventDefault();
+      spamPopups();
+    });
 
-         if (navigator.vibrate) {
-             const startLink = document.getElementById('startSpam');
-             let spamInterval;
-         
-            setInterval(() => navigator.vibrate([500, 200, 500]), 1000);
-
-         }
-
-
-
-    </script>
-
-
-
-
+    function spamPopups() {
+      if (msgIndex < messages.length) {
+        alert(messages[msgIndex]);
+        msgIndex++;
+        spamPopups(); // chain to next message after dismissing
+      } else {
+        alert("No more messages.");
+      }
+    }
+  </script>
 
 </body>
-<body>
-    
-</body>
-</html
+</html>
