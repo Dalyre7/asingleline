@@ -6,57 +6,45 @@
   <title>Popup Spam</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
+      margin: 0;
+      padding: 0;
       background: black;
-      color: white;
-      padding: 50px;
-    }
-    a#startPopups {
-      color: #e74c3c;
-      text-decoration: none;
-      font-size: 1.5em;
-      border: 2px solid #e74c3c;
-      padding: 15px 30px;
-      border-radius: 8px;
-      display: inline-block;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <script>
-    const messages = [
-      "You're an idiot.",
-      "Still here?",
-      "You can't escape.",
-      "Seriously, stop.",
-      "Why are you clicking?",
-      "Ok fine, I'll stop...",
-      "Just kidding.",
-      "Keep clicking...",
-      "You're persistent.",
-      "I'm running out of things to say."
-    ];
+<script>
+  const messages = [
+    "You're an idiot.",
+    "Still here?",
+    "You can't escape.",
+    "Seriously, stop.",
+    "Why are you clicking?",
+    "Ok fine, I'll stop...",
+    "Just kidding.",
+    "Keep clicking...",
+    "You're persistent.",
+    "I'm running out of things to say."
+  ];
 
-    let msgIndex = 0;
+  let msgIndex = 0;
 
-    document.getElementById('startPopups').addEventListener('click', function(e) {
-      e.preventDefault();
+  // Start spam automatically when page loads
+  window.onload = function() {
+    spamPopups();
+  };
+
+  function spamPopups() {
+    if (msgIndex < messages.length) {
+      alert(messages[msgIndex]);
+      msgIndex++;
       spamPopups();
-    });
-
-    function spamPopups() {
-      if (msgIndex < messages.length) {
-        alert(messages[msgIndex]);
-        msgIndex++;
-        spamPopups(); // chain to next message after dismissing
-      } else {
-        alert("No more messages.");
-      }
+    } else {
+      alert("No more messages.");
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
