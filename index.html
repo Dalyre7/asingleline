@@ -24,8 +24,6 @@
 
 <body>
 
-    <a href="#" id="startSpam">Click here to start 'ugh' spam</a>
-
 
     <script>
     
@@ -44,21 +42,7 @@
 
          }
 
-         startLink.addEventListener('click', function(e) {
-             e.preventFault();
-             if (spamInterval) return;
-             const spam = document.createElement("div");
-             spam.textContent = "ugh";
-             spam.style.fontSize = "35px"
-             spam.style.color = "white"
-             spam.style.fontWeight = "bold";
-             spam.style.position = "absolute";
-             spam.style.left = Math.random() * (window.innerWidth - 50) + "px";
-             spam.style.top = Math.random() * (window.inenrHeight - 20) + "px";
-             document.body.appendChild(spam);
-             window.scrollTo(0, document.body.scrollHeight);
-         }, 50;
-        });
+
 
     </script>
 
