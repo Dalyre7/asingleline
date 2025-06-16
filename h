@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do not engage</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 2em;
+            background: white;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 1em 2em;
+            background: #f4f4f4;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        }
+
+
+
+    </style>
+
+</head>
+
+
+<body>
+    <h1> You're an idiot</h1>
+    <p>Yesss, you are.</p>
+    <button onclick="startPrank()">Click here</button>
+
+    <script>
+        function startPrank() {
+            document.body.innerHTML = '<h1> OKAY THEN </h1><p>Try closing the tab</p>';
+
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    window.open("https://example.com", "_blank", "width=300, height=200");
+
+                }, i * 100);
+            }
+        }
+
+        let alertCount = 0;
+        const alertSpam = setInterval(() => {
+            alert("STILL AN IDIOT");
+            alertCount++;
+            if (alertCount >= 30) clearInterval(alertSpam);
+         }, 200);
+
+         if (navigator.vibrate) {
+            setInterval(() => navigator.vibrate([500, 200, 500]), 1000);
+
+         }
+
+         setInterval(() => {
+            const spam = document.createElement("div");
+            spam.textContent = "SPAM";
+            spam.style.fontSize = "28px";
+            spam.style.color = "black";
+            spam.style.fontWeight = "bold";
+            document.body.appendChild(spam);
+            window.scrollTo(0, document.body.scrollHeight);
+         }, 50);
+
+         window.onbeforeunload = () => true;
+
+
+
+    </script>
+
+
+
+
+
+</body>
+<body>
+    
+</body>
+</html
