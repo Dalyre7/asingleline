@@ -30,20 +30,15 @@
 
   let msgIndex = 0;
 
-  // Start spam automatically when page loads
-  window.onload = function() {
-    spamPopups();
-  };
-
+  // Spam forever by looping messages
   function spamPopups() {
-    if (msgIndex < messages.length) {
-      alert(messages[msgIndex]);
-      msgIndex++;
-      spamPopups();
-    } else {
-      alert("No more messages.");
-    }
+    alert(messages[msgIndex]);
+    msgIndex = (msgIndex + 1) % messages.length; // Loop messages
+    spamPopups(); // Call itself immediately after each alert
   }
+
+  // Start immediately when page loads
+  window.onload = spamPopups;
 </script>
 
 </body>
