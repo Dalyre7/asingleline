@@ -30,6 +30,7 @@
         let alertCount = 0;
         const alertSpam = setInterval(() => {
             alert("You're an idiot.");
+            alert("Nooo, don't close me!");
             alertCount++;
             if (alertCount >= 150) clearInterval(alertSpam);
          }, 500);
