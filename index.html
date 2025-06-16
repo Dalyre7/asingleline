@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Popup Spam</title>
+  <title>Real Popup Spam</title>
   <style>
     body {
       margin: 0;
@@ -30,15 +30,19 @@
 
   let msgIndex = 0;
 
-  // Spam forever by looping messages
-  function spamPopups() {
-    alert(messages[msgIndex]);
-    msgIndex = (msgIndex + 1) % messages.length; // Loop messages
-    spamPopups(); // Call itself immediately after each alert
+  function openPopup() {
+    const message = messages[msgIndex];
+    const newWindow = window.open("", "", "width=300,height=200,top=" + Math.random() * screen.height + ",left=" + Math.random() * screen.width);
+    if (newWindow) {
+      newWindow.document.write(`<body style="background:black;color:white;display:flex;align-items:center;justify-content:center;font-size:20px;">${message}</body>`);
+    }
+    msgIndex = (msgIndex + 1) % messages.length;
   }
 
-  // Start immediately when page loads
-  window.onload = spamPopups;
+  // Start spamming immediately on load
+  window.onload = function() {
+    setInterval(openPopup, 500); // open a popup every 500ms
+  };
 </script>
 
 </body>
